@@ -3,7 +3,7 @@ import { db } from "./firebase";
 
 export const verificarUsuario = async (usuario, clave) => {
   try {
-    const docRef = doc(db, "usuarios");
+    const docRef = doc(db, "usuarios", usuario);
     const docSnap = await getDoc(docRef);
     if (!docSnap.exists()) {
       return { ok: false, mensaje: "Usuario no encontrado" };
